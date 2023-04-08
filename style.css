@@ -1,0 +1,508 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: fantasy;
+    font-weight: 700;
+    margin: 0;
+    background-image: url("./img/icons/locoBg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+:root {
+    --yellow-primary: rgb(255, 196, 2);
+    --box-shadow-setting: 0px 0px 10px 2px rgba(0, 0, 0, 0.8);
+}
+
+#content {
+    position: relative;
+    width: 720px;
+    height: 480px;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow-setting);
+}
+
+#canvas {
+    display: block;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow-setting);
+}
+
+#startScreenContainer {
+    position: absolute;
+    top: 0;
+}
+
+#startScreenImg {
+    width: 720px;
+    height: 480px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-setting);
+}
+
+#endScreenContainer {
+    display: none;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+}
+
+#endScreenImg {
+    width: 720px;
+    height: 480px;
+    border-radius: 10px;
+}
+
+/* Buttons */
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 2px 2px;
+    box-shadow: 0px 0px 3px 3px black;
+    border-radius: 10px;
+    background-color: var(--yellow-primary);
+    transition: all .15s ease-in-out;
+}
+
+.buttonContainer:hover {
+    scale: 1.2;
+    cursor: pointer;
+}
+
+
+#playBtn {
+    position: absolute;
+    top: 430px;
+    right: 300px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 5px 20px;
+    box-shadow: 0px 0px 3px 3px black;
+    border-radius: 10px;
+    background-color: var(--yellow-primary);
+}
+
+#playBtn:hover {
+    scale: 1.2;
+    cursor: pointer;
+}
+
+#restartBtn {
+    position: absolute;
+    top: 405px;
+    right: 41.5%;
+    font-size: 28px;
+    padding: 2px 10px !important;
+}
+
+#controlsBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+#muteBtn {
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    z-index: 2;
+}
+
+#muteMusicBtn {
+    position: absolute;
+    top: 10px;
+    right: 110px;
+    z-index: 2;
+}
+
+#fullscreenBtn {
+    position: absolute;
+    top: 430px;
+    right: 10px;
+    z-index: 2;
+}
+
+#unstoppable {
+    position: absolute;
+    top: 80px;
+    right: 30%;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--yellow-primary);
+}
+
+/* Controls Overlay */
+#instructions {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url("./img/icons/instruction_bg.jpg");
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 720px;
+    height: 480px;
+    z-index: 2;
+    border-radius: 10px;
+    color: white;
+    box-shadow: var(--box-shadow-setting);
+}
+
+
+.keyInstructions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
+    margin-bottom: 10px;
+}
+
+.keyInstructions img {
+    height: 32px;
+    width: 32px;
+}
+
+#instructions p {
+    margin-top: 2%;
+}
+
+#throwLetter {
+    font-size: 32px;
+    font-weight: 900;
+    margin-right: 2%;
+}
+
+#closeInstructions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.d-none {
+    display: none !important;
+}
+
+#bg-rotate-device {
+    display: none;
+}
+
+/* Mobile Device */
+
+.mobileBtns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 2px solid #F7D5AA;
+    border-radius: 100%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#hud {
+    position: absolute;
+    top: 0;
+}
+
+
+@media only screen and (max-width: 720px) {
+
+    #content {
+        width: 95vw;
+        height: auto
+    }
+
+    canvas {
+        width: 100%;
+    }
+
+    #startScreenContainer {
+        width: 100%;
+    }
+
+    #startScreenContainer img {
+        width: 100%;
+    }
+
+    #fullscreenBtn {
+        position: absolute;
+        top: 85%;
+    }
+
+    .buttonContainer {
+        display: none;
+    }
+
+    .buttonContainer img {
+        height: 20px;
+        width: 20px;
+    }
+
+    #instructions {
+        top: -20px;
+        width: 100%;
+        height: 60vh;
+        padding: 0px 10px 0px 10px;
+        box-sizing: border-box;
+    }
+
+    #endScreenContainer {
+        width: 100%;
+        height: 100%;
+    }
+
+    #endScreenContainer img {
+        width: 100%;
+        height: 100%;
+    }
+
+    #restartBtn {
+        top: 82%;
+        font-size: 18px;
+        padding: 2px 20px 2px 20px !important;
+        display: flex;
+        right: 37%;
+    }
+
+    #playBtn {
+        top: 87%;
+        right: 36%;
+    }
+
+    #hud {
+        display: flex !important;
+        position: absolute;
+        width: 80%;
+        height: 480px;
+        top: 0;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .panel {
+        display: flex;
+        width: 100%;
+    }
+
+    .upperPanel {
+        position: absolute;
+        top: 5px;
+        right: 100px;
+        display: flex;
+        height: 45px;
+        width: 5px;
+    }
+
+    .upperPanel button {
+        height: 32px;
+        width: 32px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .upperPanel img {
+        height: 24px;
+        width: 24px;
+    }
+
+    #btn-left {
+        position: absolute;
+        top: 60%;
+    }
+
+    #btn-right {
+        position: absolute;
+        top: 60%;
+        left: 20%;
+    }
+
+    #btn-jump {
+        position: absolute;
+        top: 60%;
+        right: 20%;
+    }
+
+    #btn-throw {
+        position: absolute;
+        top: 60%;
+        right: 0%;
+    }
+
+    #bg-rotate-device {
+        background-color: rgba(0, 0, 0, 0.15);
+        height: 50vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #rotate-device-text {
+        font-size: 48px;
+        font-weight: bold;
+        color: var(--yellow-primary);
+        font-family: fantasy;
+    }
+
+    #bg-rotate-device {
+        display: flex !important;
+        z-index: 999;
+        position: absolute;
+        top: 0;
+        height: 480px;
+        background-color: black;
+    }
+
+}
+
+@media only screen and (max-height: 480px) {
+
+
+
+    #content {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #canvas {
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0px;
+    }
+
+    #startScreenContainer {
+        display: flex;
+        position: absolute;
+        top: 0;
+    }
+
+    #startScreenContainer img{
+        border-radius: 0px;
+    }
+
+    #endScreenContainer {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+    }
+
+    #endScreenContainer img {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .buttonContainer {
+        display: none;
+    }
+
+    #instructions {
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        padding-top: 2%;
+        box-sizing: border-box;
+    }
+
+    #instructions p {
+        margin-top: 0;
+    }
+
+    #restartBtn {
+        position: absolute;
+        top: 300px;
+        left: 42%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #playBtn {
+        top: 50%;
+        left: 50%;
+        width: 30px;
+    }
+
+    #hud {
+        display: flex !important;
+        position: absolute;
+        width: 80%;
+        height: 360px;
+        top: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .panel {
+        display: flex;
+        width: 100%;
+    }
+
+    .upperPanel {
+        position: absolute;
+        top: 5px;
+        right: 7%;
+        display: flex;
+        height: 45px;
+        width: 5px;
+    }
+
+    .upperPanel button {
+        height: 38px;
+        width: 38px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .upperPanel img {
+        height: 32px;
+        width: 32px;
+    }
+
+    #btn-left {
+        position: absolute;
+        top: 90%;
+    }
+
+    #btn-right {
+        position: absolute;
+        top: 90%;
+        left: 15%;
+    }
+
+    #btn-jump {
+        position: absolute;
+        top: 90%;
+        right: 0%;
+    }
+
+    #btn-throw {
+        position: absolute;
+        top: 90%;
+        right: -15%;
+    }
+
+    #startScreenImg {
+        height: 100vh;
+        width: 100vw;
+    }
+}

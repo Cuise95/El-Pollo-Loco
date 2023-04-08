@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="#" />
+  <title>El pollo loco</title>
+  <script src="./models/drawableObject.class.js"></script>
+  <script src="./models/status-bar-health.class.js"></script>
+  <script src="./models/status-bar-bottle.class.js"></script>
+  <script src="./models/status-bar-coins.class.js"></script>
+  <script src="./models/status-bar-endboss.class.js"></script>
+  <script src="./models/keyboard.class.js"></script>
+  <script src="./js/game.js"></script>
+  <script src="./models/world.class.js"></script>
+  <script src="./models/movableObject.class.js"></script>
+  <script src="./models/throwableObject.class.js"></script>
+  <script src="./models/collectableObject.class.js"></script>
+  <script src="./models/collectableBottleObject.class.js"></script>
+  <script src="./models/character.class.js"></script>
+  <script src="./models/chicken.class.js"></script>
+  <script src="./models/smallChicken.class.js"></script>
+  <script src="./models/cloud.class.js"></script>
+  <script src="./models/background.object.class.js"></script>
+  <script src="./models/endboss.class.js"></script>
+  <script src="./models/level.class.js"></script>
+  <script src="./levels/level1.js"></script>
+</head>
+
+<body>
+  <div id="content">
+    <!-- Canvas -->
+
+    <canvas id="canvas" width="720" height="480"></canvas>
+
+    <!-- StartScreen -->
+
+    <div id="startScreenContainer">
+      <img id="startScreenImg" src="img/9_intro_outro_screens/start/startscreen_1.png" alt="" />
+      <span id="playBtn" onclick="init()">Play</span>
+    </div>
+
+    <!-- Buttons Desktop -->
+    <div id="controlsBtn" class="buttonContainer">
+      <img src="./img/icons/gameguide.png" alt="" onclick="openControls()" />
+    </div>
+
+    <div id="muteBtn" class="buttonContainer">
+      <img onclick="mute()" src="./img/icons/mute.png" alt="" />
+    </div>
+
+    <div id="muteMusicBtn" class="buttonContainer">
+      <img onclick="bgMusic()" src="./img/icons/bgMusic.png" alt="" />
+    </div>
+
+    <div id="fullscreenBtn" class="buttonContainer d-none">
+      <img onclick="showFullscreen()" id="fullscreen" src="./img/icons/expand.png" alt="" />
+    </div>
+
+    <!-- Unstoppable Overlay -->
+
+    <span id="unstoppable" class="d-none">UNSTOPPABLE!</span>
+
+    <!-- HUD Mobile -->
+
+    <div id="hud" class="d-none">
+      <div class="upperPanel">
+        <button id="btn-mute" class="mobileBtns">
+          <img id="muteImg" src="./img/icons/mute-2.png" alt="" onclick="mute()" />
+        </button>
+
+        <button id="btn-controls" class="mobileBtns">
+          <img src="./img/icons/controls-beige.png" alt="" onclick="openControls()" />
+        </button>
+
+        <button id="btn-muteBg" class="mobileBtns">
+          <img id="muteBtnImg" src="./img/icons/muteBg.png" alt="" onclick="bgMusic()" />
+        </button>
+      </div>
+      <div class="panel">
+        <div class="panel-wrapper">
+          <button id="btn-left" class="mobileBtns d-none">
+            <img src="./img/icons/arrow-leftv2.png" alt="" />
+          </button>
+          <button id="btn-right" class="mobileBtns d-none">
+            <img src="./img/icons/arrow-rightv2.png" alt="" />
+          </button>
+        </div>
+        <div class="panel-wrapper">
+          <button id="btn-jump" class="mobileBtns d-none">
+            <img src="./img/icons/arrow-up.png" alt="" />
+          </button>
+          <button id="btn-throw" class="mobileBtns d-none">
+            <img src="./img/icons/action-redo.png" alt="" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instructions -->
+
+    <div id="instructions" class="d-none">
+      <div id="mobileLeft" class="keyInstructions">
+        <span>Walk left</span>
+        <img src="./img/icons/arrowLeftWhite.png" alt="" />
+
+      </div>
+      <div id="mobileRight" class="keyInstructions">
+        <span>Walk right</span>
+        <img src="./img/icons/arrowRightWhite.png" alt="" />
+      </div>
+      <div id="mobileJump" class="keyInstructions">
+        <span>Jump</span>
+        <img src="./img/icons/arrowUpWhite.png" alt="" />
+      </div>
+      <div id="mobileThrow" class="keyInstructions">
+        <span>Throw Bottle</span>
+        <span id="throwLetter">D</span>
+      </div>
+      <p>
+        Collecting 12 Coins enables unstoppable mode - resistant to any damage for 3 seconds
+        <br />
+        <br />
+        Collecting yellow chickens recover 20hp
+        <br />
+        <br />
+        Kill chickens by jumping on their head
+        <br />
+        <br />
+        Don't forget to collect the bottles, you need to hit the Endboss 3
+        times to win
+      </p>
+      <span id="closeInstructions" onclick="closeControls()">X</span>
+    </div>
+
+    <!-- Endscreen -->
+    <div id="endScreenContainer">
+      <img id="endScreenImg" src="img/9_intro_outro_screens/game_over/game over.png" alt="" />
+      <span id="restartBtn" class="buttonContainer" onclick="init()">Restart</span>
+      <span id="nextLvlBtn" class="buttonContainer" onclick="nextLvl()">Next</span>
+    </div>
+
+    <!-- Rotate Device Overlay -->
+    <div id="bg-rotate-device"> <span id="rotate-device-text">Rotate Device</span>
+    </div>
+</body>
+
+</html>
